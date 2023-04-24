@@ -410,6 +410,7 @@ namespace TDDWork.Tests
             };
             arrTest.Sort((x,y)=>y.get_GPA().CompareTo(x.get_GPA()));
             List<Student> arr=T.sortStudents(new List<Student>(arrTest));
+            Assert.AreNotEqual(null, arr);
             Assert.AreEqual(6, arr.Count);//array size
             Assert.AreEqual(arrTest[0].get_GPA(), arr[0].get_GPA());
             Assert.AreEqual(arrTest[1].get_GPA(), arr[1].get_GPA());
@@ -441,6 +442,7 @@ namespace TDDWork.Tests
             };
             //arrTest.Sort((x, y) => x.get_GPA().CompareTo(y.get_GPA()));
             List<Student> arr = T.sortStudents(new List<Student>(arrTest));
+            Assert.AreNotEqual(null, arr);
             Assert.AreEqual(6, arr.Count);//array size
             Assert.AreNotEqual(arrTest[0].get_GPA(), arr[0].get_GPA());
             Assert.AreEqual(arrTest[1].get_GPA(), arr[1].get_GPA());//stayed at the same spot
@@ -472,6 +474,7 @@ namespace TDDWork.Tests
             };
             arrTest.Sort((x, y) => y.get_GPA().CompareTo(x.get_GPA()));
             List<Student> arr = T.sortStudents(new List<Student>(arrTest));
+            Assert.AreNotEqual(null, arr);
             Assert.AreNotEqual(5, arr.Count);//array size
             Assert.AreEqual(arrTest[0].get_GPA(), arr[0].get_GPA());
             Assert.AreEqual(arrTest[1].get_GPA(), arr[1].get_GPA());
