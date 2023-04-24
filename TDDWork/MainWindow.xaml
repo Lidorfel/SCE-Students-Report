@@ -92,7 +92,6 @@
                     <TextBlock HorizontalAlignment="Left" Margin="667,525,0,0" TextWrapping="Wrap" Text=" : סטודנטים במערכת" VerticalAlignment="Top" Width="173" Height="36" FontSize="18" FontWeight="SemiBold"/>
                     <TextBlock x:Name="studentCount2" HorizontalAlignment="Left" Margin="544,527,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF0C580E" FontSize="18" Width="124" FontWeight="SemiBold"/>
                     <TextBlock x:Name="generateSuccess" HorizontalAlignment="Left" Margin="303,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" Foreground="#FF019005" FontWeight="ExtraBold" Width="287" TextAlignment="Center"/>
-                    <TextBox x:Name="checkBOX" HorizontalAlignment="Left" Margin="473,465,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
             <TabItem Height="188" Width="150" Background="#FF00FF2B" FontSize="14" FontWeight="SemiBold" Foreground="#FFFFAEAE"  >

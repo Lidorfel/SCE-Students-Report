@@ -337,7 +337,6 @@ namespace TDDWork
             while (idSet.Contains(ID_COUNTER.ToString()))
             {
                 ID_COUNTER++;
-                checkBOX.Text = "FOUND at " + ID_COUNTER;
             }
             string stID= ID_COUNTER.ToString();
             ID_COUNTER++;
