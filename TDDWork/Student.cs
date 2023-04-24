@@ -57,7 +57,7 @@ namespace TDDWork
                     numel++;
                 }
 
-            return average/numel;
+            return numel!=0 ? average/numel : 0;
         }
         public static Boolean operator >=(Student a,Student b)
         {

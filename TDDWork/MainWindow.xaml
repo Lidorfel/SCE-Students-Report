@@ -55,7 +55,7 @@
                     <Label Content=" : ציון קורס מס 3" Margin="328,278,401,260"/>
                     <Label Content=" : ציון קורס מס 4" Margin="328,332,401,207"/>
                     <Label Content=" : ציון קורס מס 5" Margin="328,385,401,153"/>
-                    <Button x:Name="addStudent" Content=" + הוספת סטודנט" HorizontalAlignment="Left" Margin="390,456,0,0" VerticalAlignment="Top" Height="38" Width="150" Background="#FF0C580E" Click="addStudent_Click" BorderBrush="White"/>
+                    <Button x:Name="addStudent" Content=" + הוספת סטודנט" HorizontalAlignment="Left" Margin="390,456,0,0" VerticalAlignment="Top" Height="38" Width="150" Background="#FF0C580E" Click="addStudent_Click" BorderBrush="White" Foreground="#DDFFFFFF"/>
                     <Label Content=" : שם פרטי" Margin="711,168,0,362" HorizontalAlignment="Left" Width="97"/>
                     <Label Content=" : אימייל" Margin="711,331,0,199" HorizontalAlignment="Left" Width="97"/>
                     <Label Content=" : מס טלפון" Margin="711,385,0,145" HorizontalAlignment="Left" Width="97"/>
@@ -87,7 +87,7 @@
                             <GradientStop Color="#FF7FF75C" Offset="0.084"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <Button x:Name="generateStudents" Content="צור תלמידים" HorizontalAlignment="Left" Margin="367,320,0,0" VerticalAlignment="Top" Height="57" Width="148" FontSize="18" Background="#FF0C580E" Click="generateStudents_Click" BorderBrush="White"/>
+                    <Button x:Name="generateStudents" Content="צור תלמידים" HorizontalAlignment="Left" Margin="367,320,0,0" VerticalAlignment="Top" Height="57" Width="148" FontSize="18" Background="#FF0C580E" Click="generateStudents_Click" BorderBrush="White" Foreground="#DDFFFFFF"/>
                     <TextBlock HorizontalAlignment="Left" Margin="65,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Center" FontSize="36" Height="126" FontWeight="DemiBold" Foreground="#DD000000"><Run Text="ברגע הלחיצה על הכפתור המערכת תיצור "/><LineBreak/><Run Text="באופן אוטומטי 10,000 סטודנטים עם כל הפרטים"/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="667,525,0,0" TextWrapping="Wrap" Text=" : סטודנטים במערכת" VerticalAlignment="Top" Width="173" Height="36" FontSize="18" FontWeight="SemiBold"/>
                     <TextBlock x:Name="studentCount2" HorizontalAlignment="Left" Margin="544,527,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF0C580E" FontSize="18" Width="124" FontWeight="SemiBold"/>
@@ -106,13 +106,13 @@
                         </LinearGradientBrush>
                     </Grid.Background>
                     <DataGrid Margin="0,98,0,0" Name="reportGrid" Visibility="Collapsed" AlternatingRowBackground="#FF0BAB03" Background="White" CanUserAddRows="False" IsReadOnly="True" BorderBrush="Black"/>
-                    <Button x:Name="showReport" Content="הצג דוח סטודנטים" HorizontalAlignment="Left" Margin="339,257,0,0" VerticalAlignment="Top" Height="57" Width="194" FontSize="18" Background="#FF0C580E" Click="showReport_Click" BorderBrush="White"/>
+                    <Button x:Name="showReport" Content="הצג דוח סטודנטים" HorizontalAlignment="Left" Margin="339,257,0,0" VerticalAlignment="Top" Height="57" Width="194" FontSize="18" Background="#FF0C580E" Click="showReport_Click" BorderBrush="White" Foreground="#DDFFFFFF"/>
                     <TextBlock x:Name="sortTimer" HorizontalAlignment="Left" Margin="25,32,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FF11187E" Height="56" Width="163" Visibility="Collapsed"/>
 
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="deleteSt" Content="מחיקת רשומות" HorizontalAlignment="Left" Margin="691,50,0,0" VerticalAlignment="Top" Background="#FFBD221C" BorderBrush="White" Click="deleteSt_Click" Foreground="#DD000000"/>
+        <Button x:Name="deleteSt" Content="מחיקת רשומות" HorizontalAlignment="Left" Margin="691,48,0,0" VerticalAlignment="Top" Background="#FFEE4A44" BorderBrush="White" Click="deleteSt_Click" Foreground="#DD000000"/>
 
         <Label Content="SCE מערכת ציונים" Margin="221,25,284,452" FontSize="48" FontFamily="Verdana" FontWeight="UltraBold" Foreground="#DD000000"/>
     </Grid>
