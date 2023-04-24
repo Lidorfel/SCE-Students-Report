@@ -30,14 +30,17 @@ namespace TDDWork
     public partial class MainWindow : Window
     {
         private List<Student> studentsArray;
+        private static long ID_COUNTER = 99999999;
+        private HashSet<String> idSet;
         public MainWindow()
         {
             InitializeComponent();
             //CreateAndBindDataGridColumns();
             studentsArray = new List<Student>();
+            idSet = new HashSet<String>();
             reportGrid.ItemsSource=studentsArray;
-            studentCount.Text = studentsArray.Count.ToString();
-            studentCount2.Text = studentsArray.Count.ToString();
+            studentCount.Text = studentsArray.Count.ToString("#,##0");
+            studentCount2.Text = studentsArray.Count.ToString("#,##0");
 
 
         }
@@ -95,6 +98,12 @@ namespace TDDWork
             {
                 res = false;
                 IDError.Text = "מספר תעודת זהות מכיל רק מספרים";
+                IDError.Visibility = Visibility.Visible;
+            }
+            else if (flag == 4)
+            {
+                res = false;
+                IDError.Text = "מס זה קיים כבר במערכת";
                 IDError.Visibility = Visibility.Visible;
             }
             flag = checkEmail(stEmail);
@@ -235,6 +244,7 @@ namespace TDDWork
                 collapseAll();
                 double[] grades=new double[] {Convert.ToDouble(stGrade1), Convert.ToDouble(stGrade2), Convert.ToDouble(stGrade3), Convert.ToDouble(stGrade4),Convert.ToDouble(stGrade5)};
                 studentsArray.Add(new Student(stId, stFirstName, stSurName, stEmail, stPhoneNumber, grades));
+                idSet.Add(stId);
                 addStudentSuccess.Text = "סטודנט נוסף בהצלחה";
                 addStudentError.Visibility = Visibility.Collapsed;
                 addStudentSuccess.Visibility = Visibility.Visible;
@@ -256,14 +266,14 @@ namespace TDDWork
             reportGrid.Visibility = Visibility.Collapsed;
             showReport.Visibility = Visibility.Visible;
             sortTimer.Visibility = Visibility.Collapsed;
-            studentCount.Text = studentsArray.Count.ToString();
-            studentCount2.Text = studentsArray.Count.ToString();
+            studentCount.Text = studentsArray.Count.ToString("#,##0");
+            studentCount2.Text = studentsArray.Count.ToString("#,##0");
         }
 
         private void generateStudents_Click(object sender, RoutedEventArgs e)
         {
-            studentCount.Text = studentsArray.Count.ToString();
-            studentCount2.Text = studentsArray.Count.ToString();
+            studentCount.Text = studentsArray.Count.ToString("#,##0");
+            studentCount2.Text = studentsArray.Count.ToString("#,##0");
             try
             {
                 for (int i = 0; i < 10000; i++)
@@ -287,8 +297,8 @@ namespace TDDWork
             reportGrid.Visibility = Visibility.Collapsed;
             showReport.Visibility = Visibility.Visible;
             sortTimer.Visibility = Visibility.Collapsed;
-            studentCount.Text = studentsArray.Count.ToString();
-            studentCount2.Text = studentsArray.Count.ToString();
+            studentCount.Text = studentsArray.Count.ToString("#,##0");
+            studentCount2.Text = studentsArray.Count.ToString("#,##0");
         }
         private void showReport_Click(object sender, RoutedEventArgs e)
         {
@@ -324,7 +334,13 @@ namespace TDDWork
             string stFName = possibleFNames[index1];
             string stSName = possibleSNames[index2];
             string stEmail = stFName + stSName + random.NextInt64(0, 100).ToString() + possibleEmail[index3];
-            string stID=random.NextInt64(100000000,999999999).ToString();
+            while (idSet.Contains(ID_COUNTER.ToString()))
+            {
+                ID_COUNTER++;
+                checkBOX.Text = "FOUND at " + ID_COUNTER;
+            }
+            string stID= ID_COUNTER.ToString();
+            ID_COUNTER++;
             double[] stGrades=new double[5];
             for (int i = 0; i < 5; i++)
             {
@@ -333,6 +349,7 @@ namespace TDDWork
                     grade = 777;
                 stGrades[i] = grade;
             }
+            idSet.Add(stID);
             return new Student(stID, stFName, stSName, stEmail, stPhoneNumber, stGrades); 
         }
         private void collapseAll()
@@ -374,6 +391,8 @@ namespace TDDWork
             }
             if (id[0] == '0')
                 return 2;
+            if (idSet.Contains(id))
+                return 4;
             return 0;
             
         }
@@ -542,8 +561,8 @@ namespace TDDWork
             if (studentsArray.Count > 0)
             {
                 studentsArray.Clear();
-                studentCount.Text = studentsArray.Count.ToString();
-                studentCount2.Text = studentsArray.Count.ToString();
+                studentCount.Text = studentsArray.Count.ToString("#,##0");
+                studentCount2.Text = studentsArray.Count.ToString("#,##0");
                 reportGrid.Visibility= Visibility.Collapsed;
                 showReport.Visibility= Visibility.Visible;
                 sortTimer.Visibility= Visibility.Collapsed;
