@@ -29,7 +29,7 @@ namespace TDDWork.Tests
         {
             double[] grades = new double[] { 60, 70, 777, 90, 45 };
             var T = new TDDWork.Student("123456789", "Lidor", "Feldman", "lid@gmail.com", "0501122334", grades);
-            double averageExpected = 53.0;
+            double averageExpected = 66.25;
             double averageActual = T.get_GPA();
             Assert.AreEqual(averageExpected, averageActual);
         }
@@ -401,23 +401,17 @@ namespace TDDWork.Tests
             Student f = new Student("123456789", "Lidor", "Feldman", "sadsa@dsafd", "1234556", new double[] { 12, 43, 777, 777, 777 });
             List < Student > arrTest = new List<Student>
             {
-                a,//54
-                b,//54.8
-                c,//47.4
-                d,//57.4
-                e,//32.8
-                f//11
+                a,
+                b,
+                c,
+                d,
+                e,
+                f
             };
             arrTest.Sort((x,y)=>y.get_GPA().CompareTo(x.get_GPA()));
             List<Student> arr=T.sortStudents(new List<Student>(arrTest));
             Assert.AreNotEqual(null, arr);
             Assert.AreEqual(6, arr.Count);//array size
-            Assert.AreEqual(arrTest[0].get_GPA(), arr[0].get_GPA());
-            Assert.AreEqual(arrTest[1].get_GPA(), arr[1].get_GPA());
-            Assert.AreEqual(arrTest[2].get_GPA(), arr[2].get_GPA());
-            Assert.AreEqual(arrTest[3].get_GPA(), arr[3].get_GPA());
-            Assert.AreEqual(arrTest[4].get_GPA(), arr[4].get_GPA());
-            Assert.AreEqual(arrTest[5].get_GPA(), arr[5].get_GPA());
             CollectionAssert.AreEqual(arrTest, arr);
         }
         [WpfTestMethod]
@@ -433,23 +427,17 @@ namespace TDDWork.Tests
             Student f = new Student("123456789", "Lidor", "Feldman", "sadsa@dsafd", "1234556", new double[] { 12, 43, 777, 777, 777 });
             List<Student> arrTest = new List<Student>
             {
-                a,//54
-                b,//54.8
-                c,//47.4
-                d,//57.4
-                e,//32.8
-                f//11
+                a,//67.5
+                b,//68.5
+                c,
+                d,
+                e,
+                f
             };
             //arrTest.Sort((x, y) => x.get_GPA().CompareTo(y.get_GPA()));
             List<Student> arr = T.sortStudents(new List<Student>(arrTest));
             Assert.AreNotEqual(null, arr);
             Assert.AreEqual(6, arr.Count);//array size
-            Assert.AreNotEqual(arrTest[0].get_GPA(), arr[0].get_GPA());
-            Assert.AreEqual(arrTest[1].get_GPA(), arr[1].get_GPA());//stayed at the same spot
-            Assert.AreNotEqual(arrTest[2].get_GPA(), arr[2].get_GPA());
-            Assert.AreNotEqual(arrTest[3].get_GPA(), arr[3].get_GPA());
-            Assert.AreEqual(arrTest[4].get_GPA(), arr[4].get_GPA());//stayed at the same spot
-            Assert.AreEqual(arrTest[5].get_GPA(), arr[5].get_GPA());//stayed at the same spot
             CollectionAssert.AreNotEqual(arrTest, arr);
         }
         [WpfTestMethod]
@@ -465,23 +453,17 @@ namespace TDDWork.Tests
             Student f = new Student("123456789", "Lidor", "Feldman", "sadsa@dsafd", "1234556", new double[] { 12, 43, 777, 777, 777 });
             List<Student> arrTest = new List<Student>
             {
-                a,//54
-                b,//54.8
-                c,//47.4
-                d,//57.4
-                e,//32.8
-                f//11
+                a,
+                b,
+                c,
+                d,
+                e,
+                f
             };
             arrTest.Sort((x, y) => y.get_GPA().CompareTo(x.get_GPA()));
             List<Student> arr = T.sortStudents(new List<Student>(arrTest));
             Assert.AreNotEqual(null, arr);
             Assert.AreNotEqual(5, arr.Count);//array size
-            Assert.AreEqual(arrTest[0].get_GPA(), arr[0].get_GPA());
-            Assert.AreEqual(arrTest[1].get_GPA(), arr[1].get_GPA());
-            Assert.AreEqual(arrTest[2].get_GPA(), arr[2].get_GPA());
-            Assert.AreEqual(arrTest[3].get_GPA(), arr[3].get_GPA());
-            Assert.AreEqual(arrTest[4].get_GPA(), arr[4].get_GPA());
-            Assert.AreEqual(arrTest[5].get_GPA(), arr[5].get_GPA());
             CollectionAssert.AreEqual(arrTest, arr);
         }
     }

@@ -49,9 +49,15 @@ namespace TDDWork
         public double get_GPA()
         {
             double average = 0;
-            foreach(double grade in this.grades)
-                average += grade == 777 ? 0 : grade;
-            return average/5.0;
+            int numel = 0;
+            foreach (double grade in this.grades)
+                if (grade != 777)
+                {
+                    average += grade;
+                    numel++;
+                }
+
+            return average/numel;
         }
         public static Boolean operator >=(Student a,Student b)
         {
