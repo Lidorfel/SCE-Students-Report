@@ -180,8 +180,8 @@ namespace TDDWork
             else if (flag == 2)
             {
                 res = false;
-                grade1Error.Text = "ציון לא תקין";
-                grade1Error.Visibility = Visibility.Visible;
+                grade2Error.Text = "ציון לא תקין";
+                grade2Error.Visibility = Visibility.Visible;
             }
             flag = checkGrade(stGrade3);
             if (flag == 1)
@@ -199,8 +199,8 @@ namespace TDDWork
             else if (flag == 2)
             {
                 res = false;
-                grade1Error.Text = "ציון לא תקין";
-                grade1Error.Visibility = Visibility.Visible;
+                grade3Error.Text = "ציון לא תקין";
+                grade3Error.Visibility = Visibility.Visible;
             }
             flag = checkGrade(stGrade4);
             if (flag == 1)
@@ -218,8 +218,8 @@ namespace TDDWork
             else if (flag == 2)
             {
                 res = false;
-                grade1Error.Text = "ציון לא תקין";
-                grade1Error.Visibility = Visibility.Visible;
+                grade4Error.Text = "ציון לא תקין";
+                grade4Error.Visibility = Visibility.Visible;
             }
             flag = checkGrade(stGrade5);
             if (flag == 1)
@@ -237,8 +237,8 @@ namespace TDDWork
             else if (flag == 2)
             {
                 res = false;
-                grade1Error.Text = "ציון לא תקין";
-                grade1Error.Visibility = Visibility.Visible;
+                grade5Error.Text = "ציון לא תקין";
+                grade5Error.Visibility = Visibility.Visible;
             }
             if (res)
             {
@@ -313,7 +313,7 @@ namespace TDDWork
             showReport.Visibility = Visibility.Collapsed;
             stopwatch.Stop();
             TimeSpan elapsedTime = stopwatch.Elapsed;
-            sortTimer.Text = "Sorting took " + elapsedTime.TotalSeconds + " seconds.";
+            sortTimer.Text = "Sorting took " + elapsedTime.TotalSeconds + " seconds. for "+sortedArr.Count.ToString("#,##0") + " lines.";
         }
         private Student generateStudent()
         {
@@ -334,7 +334,7 @@ namespace TDDWork
             index3 = random.Next(0, possibleEmail.Length);
             string stFName = possibleFNames[index1];
             string stSName = possibleSNames[index2];
-            string stEmail = stFName + stSName + random.NextInt64(0, 100).ToString() + possibleEmail[index3];
+            string stEmail = stFName.Replace(" ", "") + stSName.Replace(" ", "") + random.NextInt64(0, 100).ToString() + possibleEmail[index3];
             while (idSet.Contains(ID_COUNTER.ToString()))
             {
                 ID_COUNTER++;
@@ -531,7 +531,7 @@ namespace TDDWork
             DataTable dataTable = new DataTable();
 
             // Add columns to the DataTable
-            dataTable.Columns.Add("Index", typeof(int));
+            dataTable.Columns.Add("Index", typeof(string));
             dataTable.Columns.Add("First Name", typeof(string));
             dataTable.Columns.Add("Last Name", typeof(string));
             dataTable.Columns.Add("Student ID", typeof(string));
@@ -544,7 +544,7 @@ namespace TDDWork
             foreach (Student student in students)
             {
                 DataRow row = dataTable.NewRow();
-                row["Index"] = count++;
+                row["Index"] = count++.ToString("#,##0");
                 row["Student ID"] = student.Id;
                 row["First Name"] = student.firstName;
                 row["Last Name"] = student.surName;
